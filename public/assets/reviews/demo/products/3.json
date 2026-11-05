@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "reviews.v1",
+  "productId": "3",
+  "reviews": [
+    {
+      "sourceReviewId": "demo:3:1",
+      "rating": 4,
+      "title": "Entrega boa, prazo poderia melhorar",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e cabedal respirável foi um ponto positivo. O custo-benefício é positivo, mas eu esperava uma regulagem mais simples. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Lia Duarte",
+      "createdAt": "2026-04-12T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:3:2",
+      "rating": 4,
+      "title": "cabedal respirável agrada, forma pede cuidado",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e cabedal respirável foi um ponto positivo. A única ressalva foi que a forma pareceu mais ajustada; vale conferir a medida antes de pedir. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Ivo Martins",
+      "createdAt": "2026-04-29T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:3:3",
+      "rating": 4,
+      "title": "Atendeu bem, com observação no uso",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e cabedal respirável foi um ponto positivo. O produto é bom, mas o acabamento poderia ser um pouco mais uniforme em um detalhe. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Leo Sampaio",
+      "createdAt": "2026-05-16T00:00:00.000Z",
+      "verifiedPurchase": false
+    },
+    {
+      "sourceReviewId": "demo:3:4",
+      "rating": 4,
+      "title": "Bom produto, mas confira o ajuste",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e cabedal respirável foi um ponto positivo. A embalagem chegou com uma marca leve, embora o item estivesse protegido. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Rafa Tavares",
+      "createdAt": "2026-06-02T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:3:5",
+      "rating": 5,
+      "title": "cabedal respirável faz diferença neste tênis",
+      "body": "A variação Berge de Tênis Olympikus Corre 4 Unissex ficou exatamente com a proposta que eu procurava. Foi uma compra equilibrada para a categoria, sem surpresa negativa. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Bia Monteiro",
+      "createdAt": "2025-11-11T00:00:00.000Z",
+      "verifiedPurchase": true
+    }
+  ]
+}

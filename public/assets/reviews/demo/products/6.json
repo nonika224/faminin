@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "reviews.v1",
+  "productId": "6",
+  "reviews": [
+    {
+      "sourceReviewId": "demo:6:1",
+      "rating": 5,
+      "title": "Boa escolha na variação Amarelo",
+      "body": "Depois de alguns usos em corrida e caminhada, fiquei satisfeito com O Tênis Olympikus Corre 4 Unissex. A relação entre praticidade e qualidade ficou acima do esperado. A proposta da Olympikus ficou coerente com o que eu buscava. Depois de 24 dias usando a variação Amarelo, essa impressão continuou a mesma.",
+      "author": "Davi Prado",
+      "createdAt": "2025-11-06T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:6:2",
+      "rating": 4,
+      "title": "Entrega boa, prazo poderia melhorar",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e ajuste por cadarço foi um ponto positivo. A única ressalva foi que a forma pareceu normal; vale conferir a medida antes de pedir. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Luna Farias",
+      "createdAt": "2025-11-23T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:6:3",
+      "rating": 5,
+      "title": "Gostei do ajuste para corrida e caminhada",
+      "body": "Usei O Tênis Olympikus Corre 4 Unissex em corrida e caminhada e a escolha fez sentido desde o primeiro dia. Não encontrei folgas ou incômodos e recomendo para essa finalidade. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Ana Vilar",
+      "createdAt": "2025-12-10T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:6:4",
+      "rating": 4,
+      "title": "Atendeu bem, com observação no uso",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e ajuste por cadarço foi um ponto positivo. A embalagem chegou com uma marca leve, embora o item estivesse protegido. A Olympikus mantém uma boa proposta para esse tipo de produto. Voltei a usar a variação Amarelo por mais 21 dias e o resultado se manteve.",
+      "author": "Mila Rios",
+      "createdAt": "2025-12-27T00:00:00.000Z",
+      "verifiedPurchase": false
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "frontnetlify",
+  "private": true,
+  "type": "module",
+  "description": "Capa (Edge Function) que fica por cima da route-LP hospedada na Netlify: crawler -> canônica, sem param -> genérica, clique de anúncio -> LP com token.",
+  "scripts": {
+    "check": "node --check netlify/edge-functions/capa.js && node --check netlify/edge-functions/lib/capa-core.js && node --check capa-token.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

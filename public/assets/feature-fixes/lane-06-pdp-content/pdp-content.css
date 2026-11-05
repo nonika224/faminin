@@ -1,0 +1,11 @@
+.lane-06-pdp-content { margin-top: 20px; }
+.lane-06-recommendation-rail { display: flex; gap: 12px; overflow-x: auto; padding: 0 4px 12px; }
+.lane-06-recommendation-card { position: relative; display: flex; min-width: 176px; flex-direction: column; gap: 6px; border: 1px solid #ddd; border-radius: 8px; background: #fff; padding: 10px; text-align: left; }
+.lane-06-recommendation-card img { width: 100%; height: 176px; object-fit: contain; }
+.lane-06-recommendation-card strong { min-height: 36px; font-size: 13px; }
+.lane-06-recommendation-card s { color: #777; font-size: 11px; }
+.lane-06-recommendation-card b { color: #e30613; font-size: 14px; }
+.lane-06-recommendation-card small { font-size: 11px; }
+.lane-06-discount, .lane-06-best-seller { position: absolute; top: 8px; z-index: 1; border-radius: 4px; padding: 3px 5px; font-size: 10px; font-weight: 700; }
+.lane-06-discount { right: 8px; color: #07834d; background: #f0fff7; }
+.lane-06-best-seller { left: 8px; color: #fff; background: #111; }

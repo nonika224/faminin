@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "reviews.v1",
+  "productId": "13",
+  "reviews": [
+    {
+      "sourceReviewId": "demo:13:1",
+      "rating": 5,
+      "title": "ajuste por cadarço faz diferença neste tênis",
+      "body": "Usei O Tênis Olympikus Corre 4 Unissex em corrida e caminhada e a escolha fez sentido desde o primeiro dia. Foi uma compra equilibrada para a categoria, sem surpresa negativa. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Ivo Martins",
+      "createdAt": "2025-12-20T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:13:2",
+      "rating": 5,
+      "title": "Boa escolha na variação Bergen",
+      "body": "Para corrida e caminhada, O Tênis Olympikus Corre 4 Unissex entregou uma experiência consistente. Gostei do acabamento e do desempenho no uso contínuo. A proposta da Olympikus ficou coerente com o que eu buscava. Na minha rotina, a variação Bergen confirmou essa percepção ao longo de 10 dias.",
+      "author": "Leo Sampaio",
+      "createdAt": "2026-01-06T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:13:3",
+      "rating": 4,
+      "title": "Entrega boa, prazo poderia melhorar",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e ajuste por cadarço foi um ponto positivo. O custo-benefício é positivo, mas eu esperava uma regulagem mais simples. A Olympikus mantém uma boa proposta para esse tipo de produto. Na minha rotina, a variação Bergen confirmou essa percepção ao longo de 6 dias.",
+      "author": "Rafa Tavares",
+      "createdAt": "2026-01-23T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:13:4",
+      "rating": 4,
+      "title": "ajuste por cadarço agrada, forma pede cuidado",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e ajuste por cadarço foi um ponto positivo. A única ressalva foi que a forma pareceu levemente ampla; vale conferir a medida antes de pedir. No meu caso, o conforto ficou levemente ampla. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Bia Monteiro",
+      "createdAt": "2026-02-09T00:00:00.000Z",
+      "verifiedPurchase": false
+    }
+  ]
+}

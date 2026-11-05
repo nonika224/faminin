@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "reviews.provenance.v1",
+  "sourceType": "synthetic-demo",
+  "stagingOnly": true,
+  "productionUseAllowed": false,
+  "note": "Conteúdo demonstrativo local. Substituir por avaliações reais autorizadas antes de produção.",
+  "products": 895,
+  "reviews": 4180,
+  "deduplicatedBodies": 208,
+  "aggregateSummary": {
+    "manifestVersion": "2026-08-09.synthetic-demo.aggregate.2",
+    "generation": "deterministic-fnv1a32-productId-name-aggregate-demo-v2",
+    "nameCatalog": "/assets/product-cards.compact.v1.json",
+    "reviewedProducts": 826,
+    "emptyProducts": 69,
+    "priorityProducts": 33,
+    "reviewedCountRange": [
+      80,
+      289
+    ],
+    "priorityPattern": "\\bCorre\\s*[45]\\b",
+    "priorityCountRange": [
+      240,
+      289
+    ],
+    "aggregateReviewCount": 125018,
+    "note": "Totais agregados demonstrativos independentes da amostra de comentários; nenhum comentário foi criado ou duplicado."
+  },
+  "ranges": [
+    {
+      "range": "000-100",
+      "sourceType": "synthetic-demo",
+      "products": 101,
+      "reviews": 456,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "101-200",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 500,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "201-300",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 428,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "301-400",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 495,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "401-500",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 627,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "501-600",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 397,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "601-700",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 503,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "701-800",
+      "sourceType": "synthetic-demo",
+      "products": 100,
+      "reviews": 351,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    },
+    {
+      "range": "801-894",
+      "sourceType": "synthetic-demo",
+      "products": 94,
+      "reviews": 423,
+      "extractionStatus": "public-source-blocked-before-review-body"
+    }
+  ]
+}

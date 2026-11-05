@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "reviews.v1",
+  "productId": "10",
+  "reviews": [
+    {
+      "sourceReviewId": "demo:10:1",
+      "rating": 4,
+      "title": "Acabamento bom com pequena ressalva",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e amortecimento foi um ponto positivo. O prazo ficou um pouco acima do previsto; depois da chegada, o uso foi satisfatório. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Luna Farias",
+      "createdAt": "2026-02-21T00:00:00.000Z",
+      "verifiedPurchase": false
+    },
+    {
+      "sourceReviewId": "demo:10:2",
+      "rating": 5,
+      "title": "Boa escolha na variação Preto Chumbo",
+      "body": "Para corrida e caminhada, O Tênis Olympikus Corre 4 Unissex entregou uma experiência consistente. Gostei do acabamento e do desempenho no uso contínuo. A proposta da Olympikus ficou coerente com o que eu buscava. Na minha rotina, a variação Preto Chumbo confirmou essa percepção ao longo de 22 dias.",
+      "author": "Ana Vilar",
+      "createdAt": "2026-03-10T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:10:3",
+      "rating": 5,
+      "title": "Desempenho consistente no tênis",
+      "body": "A variação Preto Chumbo de Tênis Olympikus Corre 4 Unissex ficou exatamente com a proposta que eu procurava. A relação entre praticidade e qualidade ficou acima do esperado. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Mila Rios",
+      "createdAt": "2026-03-27T00:00:00.000Z",
+      "verifiedPurchase": true
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Proveniência dos recursos oficiais extraídos e mantidos localmente pela camada Matrix.",
+  "assets": [
+    {
+      "localPath": "assets/logo-centauro-red.svg",
+      "sourceUrl": "https://www.centauro.com.br/",
+      "sourceSelector": "header svg[aria-label='logo da centauro']",
+      "sha256": "8cdda1526ac4bde6a8503241bad9b64165d106c64e5a2ba57f375d9d945bd68f",
+      "verification": "Os 14 atributos path[d] foram conferidos contra o outerHTML da página oficial em 2026-08-01; a cor local é #E30000 e a fonte usa var(--colors-brand-secondary)."
+    },
+    {
+      "localPath": "assets/matrix/logo-centauro-c.svg",
+      "sourceUrl": "https://www.centauro.com.br/checkouts/carrinho?newcheckout=true",
+      "sourceSelector": "svg[aria-label='Centauro Logo']",
+      "sha256": "58506cee533fd3972570dafc6f1620f72ef6d2a99fb62349e1f91f170d991507",
+      "verification": "Os seis atributos path[d] foram conferidos contra o outerHTML do checkout oficial em 2026-08-01; a cor local é #E30000 e a fonte usa var(--colors-brand-secondary)."
+    },
+    {
+      "localPath": "assets/matrix/fonts/centauro-roboto-latin.woff2",
+      "sourceUrl": "https://static.centauro.com.br/store/1-124-0/_next/static/media/1e41be92c43b3255-s.p.woff2",
+      "sha256": "0a44e0bb6ba5c8537e8814c148ef7755f1bce12112361231f595ecc584a18d7a",
+      "verification": "Conteúdo local e resposta oficial possuem 37520 bytes e SHA-256 idêntico, verificados em 2026-08-01."
+    },
+    {
+      "localPath": "assets/matrix/fonts/centauro-rubik-latin.woff2",
+      "sourceUrl": "https://static.centauro.com.br/store/1-124-0/_next/static/media/0a86735c6520d94f-s.p.woff2",
+      "sha256": "99ec7ccb40cf143f977c893649deece6cc2dcc7c0ff82ebf84b6584090f207ea",
+      "verification": "Conteúdo local e resposta oficial possuem 35324 bytes e SHA-256 idêntico, verificados em 2026-08-01."
+    },
+    {
+      "localPath": "assets/matrix/live/arena-adidas-quadra.png",
+      "sourceUrl": "https://imgcentauro-a.akamaihd.net/strapi/centauro/prod/73478_CENTAURO_728x90px_3_1_V1_617d045f5f/73478_CENTAURO_728x90px_3_1_V1_617d045f5f.png",
+      "sha256": "AE12447AE6E4895A1E3C412E9409AFADB8DCE66EC8E8F66C03CC26E73C70963D",
+      "dimensions": "1920x500",
+      "verification": "Imagem pÃºblica observada na listagem oficial da Arena Centauro; dimensÃµes conferidas localmente em 2026-08-07."
+    },
+    {
+      "localPath": "assets/matrix/live/arena-umbro-pro5.png",
+      "sourceUrl": "https://imgcentauro-a.akamaihd.net/strapi/centauro/prod/73478_CENTAURO_1920x500px_1_1_V1_ea12eb6ced/73478_CENTAURO_1920x500px_1_1_V1_ea12eb6ced.png",
+      "sha256": "711C95F2E403072A31860A8C9B8768E95E8816CD1F378ADCD2534D4E955917C6",
+      "dimensions": "1920x500",
+      "verification": "Imagem pÃºblica observada na listagem oficial da Arena Centauro; dimensÃµes conferidas localmente em 2026-08-07."
+    },
+    {
+      "localPath": "assets/matrix/live/arena-lebron-76ers.png",
+      "sourceUrl": "https://imgcentauro-a.akamaihd.net/strapi/centauro/prod/73250_CENTAURO_728x90px_5_1_V1_de57a5e7dc/73250_CENTAURO_728x90px_5_1_V1_de57a5e7dc.png",
+      "sha256": "936367C7A6879BD40C5DC0F371379141E171A1407B338399EEDF122955624013",
+      "dimensions": "1920x500",
+      "verification": "Imagem pÃºblica observada na listagem oficial da Arena Centauro; dimensÃµes conferidas localmente em 2026-08-07."
+    },
+    {
+      "localPath": "assets/matrix/live/arena-tiago-splitter.png",
+      "sourceUrl": "https://imgcentauro-a.akamaihd.net/strapi/centauro/prod/73250_CENTAURO_728x90px_3_1_V1_336c57f5b9/73250_CENTAURO_728x90px_3_1_V1_336c57f5b9.png",
+      "sha256": "7E3721AD3DE119786A31DB3ED836F8C20F2ACE436A60092F798EA5DF937C3B97",
+      "dimensions": "1920x500",
+      "verification": "Imagem pÃºblica observada na listagem oficial da Arena Centauro; dimensÃµes conferidas localmente em 2026-08-07."
+    }
+  ]
+}

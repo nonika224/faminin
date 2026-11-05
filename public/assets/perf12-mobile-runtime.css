@@ -1,0 +1,45 @@
+/* Perf12.2 technical mobile/WebView layer. No visual redesign. */
+
+@supports (height: 100dvh) {
+  #matrix-route-loading {
+    max-height: var(--centauro-visual-viewport-height, 100dvh);
+  }
+}
+
+@media (max-width: 768px) {
+  .matrix-search-backdrop,
+  .matrix-cep-sheet,
+  .matrix-cep-backdrop {
+    height: var(--centauro-visual-viewport-height, 100dvh) !important;
+  }
+
+  :root[data-centauro-keyboard-open] .matrix-store-header.is-search-results-open .matrix-search-popular {
+    max-height: max(180px, calc(var(--centauro-visual-viewport-height, 100dvh) - 164px)) !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  :root[data-centauro-keyboard-open] .matrix-cep-bottom-sheet {
+    max-height: max(280px, calc(var(--centauro-visual-viewport-height, 100dvh) - 12px)) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  }
+
+  /* Skip layout/paint for long, offscreen Home sections. `auto` preserves DOM
+     and accessibility semantics while keeping visible sections unchanged. */
+  @supports (content-visibility: auto) {
+    body.matrix-home .home-v2-section:not(.matrix-home-source-hidden):not([hidden]),
+    body.matrix-home #root .matrix-footer-extras {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 560px;
+    }
+
+    body.matrix-home .home-v2-main-carousel,
+    body.matrix-home .home-v2-cats {
+      content-visibility: visible;
+      contain-intrinsic-size: none;
+    }
+  }
+}

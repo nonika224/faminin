@@ -1,0 +1,4 @@
+/* Isola apenas o iframe identificado no teste público da Netlify. */
+iframe#nl-badge-frame[title="Powered by Netlify"] {
+  display: none !important;
+}

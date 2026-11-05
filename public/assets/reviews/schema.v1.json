@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://assets.example.invalid/reviews/schema.v1.json",
+  "title": "Reviews product payload v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "productId", "reviews"],
+  "properties": {
+    "schemaVersion": { "const": "reviews.v1" },
+    "productId": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "reviews": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/review" }
+    }
+  },
+  "$defs": {
+    "aggregateDistribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["1", "2", "3", "4", "5"],
+      "properties": {
+        "1": { "type": "integer", "minimum": 1 },
+        "2": { "type": "integer", "minimum": 1 },
+        "3": { "type": "integer", "minimum": 1 },
+        "4": { "type": "integer", "minimum": 1 },
+        "5": { "type": "integer", "minimum": 1 }
+      },
+      "$comment": "Shared reviewed-summary shape; manifest.schema.v1.json applies it to manifest entries. loader.v1.js checks the dynamic sum and weighted mean."
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rating", "body"],
+      "properties": {
+        "sourceReviewId": { "type": "string", "minLength": 1, "maxLength": 300 },
+        "rating": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "title": { "type": "string", "maxLength": 300 },
+        "body": { "type": "string", "minLength": 1, "maxLength": 10000 },
+        "author": { "type": "string", "maxLength": 200 },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "verifiedPurchase": { "type": "boolean" },
+        "photos": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri", "pattern": "^https?://" },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

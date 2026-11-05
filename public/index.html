@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Centauro</title>
+  <meta name="description" content="Loja Centauro: produtos esportivos, calcados, roupas e acessorios." />
+  <meta name="theme-color" content="#e30000">
+  <!-- Overrides opcionais, antes do runtime: window.__BACKEND_API_BASE__ e window.__CAPI_API_BASE__. -->
+  <meta name="backend-api-base" content="">
+  <meta name="capi-api-base" content="">
+  <meta name="pix-proof-api" content="https://comprovanterendaextra.vercel.app/api/pix-proof">
+  <link rel="preconnect" href="https://spacentauro-a.akamaihd.net" crossorigin>
+  <link rel="preload" as="image" href="https://spacentauro-a.akamaihd.net/assets/load.gif" fetchpriority="high">
+  <script id="matrix-route-bootstrap">
+    (() => {
+      document.documentElement.setAttribute("data-matrix-route-loading", "true");
+
+      // A failed entry must leave a visible, keyboard-accessible recovery.
+      const criticalEntry = (value) => {
+        try { return /^\/assets\/(?:index-produto-descricao|matrix-redesign|spa-core-runtime|feature-fixes\/lane-(?:01-plp-filters\/plp-filters|02-plp-windowing\/plp-windowing)|reviews\/loader\.v1)\.js$/.test(new URL(value, location.href).pathname); }
+        catch { return false; }
+      };
+      let bootPending = true;
+      let bootFailed = false;
+      let bootResourceFailed = false;
+      const bootBackground = new Map();
+      const showBootFailure = (confirmed = true) => {
+        if (confirmed) bootResourceFailed = true;
+        if (bootFailed) return;
+        bootFailed = true;
+        clearTimeout(bootDeadline);
+        document.documentElement.dataset.matrixBootError = "true";
+        const show = () => {
+          if (!bootFailed) return;
+          const panel = document.getElementById("matrix-boot-error");
+          if (!panel) return;
+          panel.hidden = false;
+          for (const child of document.body.children) {
+            if (child !== panel) {
+              bootBackground.set(child, { inert: child.hasAttribute("inert"), aria: child.getAttribute("aria-hidden") });
+              child.setAttribute("inert", "");
+              child.setAttribute("aria-hidden", "true");
+            }
+          }
+          const retry = panel.querySelector("button");
+          retry.addEventListener("click", () => location.reload(), { once: true });
+          retry.addEventListener("keydown", (event) => { if (event.key === "Tab") event.preventDefault(); });
+          retry.focus({ preventScroll: true });
+        };
+        if (document.getElementById("matrix-boot-error")) show();
+        else document.addEventListener("DOMContentLoaded", show, { once: true });
+      };
+      const bootDeadline = setTimeout(() => showBootFailure(false), 18000);
+      addEventListener("error", (event) => {
+        const resourceFailed = event.target instanceof HTMLScriptElement && criticalEntry(event.target.src);
+        const executionFailed = bootPending && criticalEntry(event.filename || "");
+        if (resourceFailed || executionFailed) showBootFailure();
+      }, true);
+      document.addEventListener("DOMContentLoaded", () => {
+        bootPending = false;
+        clearTimeout(bootDeadline);
+        if (bootFailed && !bootResourceFailed) {
+          bootFailed = false;
+          delete document.documentElement.dataset.matrixBootError;
+          const panel = document.getElementById("matrix-boot-error");
+          if (panel) { panel.querySelector("button")?.blur(); panel.hidden = true; }
+          for (const [child, previous] of bootBackground) {
+            if (!previous.inert) child.removeAttribute("inert");
+            if (previous.aria === null) child.removeAttribute("aria-hidden");
+            else child.setAttribute("aria-hidden", previous.aria);
+          }
+        }
+        bootBackground.clear();
+      }, { once: true });
+      const BOOT_PARAM = "__matrix_route";
+      const nativePushState = history.pushState.bind(history);
+      const nativeReplaceState = history.replaceState.bind(history);
+      const isSafeInternalRoute = (value) => typeof value === "string" && /^\/(?!\/)/.test(value);
+      const routeFamily = () => {
+        const path = location.pathname;
+        if (path === "/" || path === "/home" || path.startsWith("/busca") || path.startsWith("/produto/")) return "store";
+        if (["/carrinho", "/entrega", "/pagamento", "/cartao"].includes(path)) return "checkout";
+        return "other";
+      };
+      const syncRouteFamily = () => {
+        const nextFamily = routeFamily();
+        if (document.documentElement.dataset.matrixRouteFamily !== nextFamily) {
+          document.documentElement.dataset.matrixRouteFamily = nextFamily;
+        }
+      };
+      const bootRoute = new URLSearchParams(location.search).get(BOOT_PARAM);
+      if (isSafeInternalRoute(bootRoute)) nativeReplaceState(history.state, "", bootRoute);
+
+      // The first Home campaign is the likely LCP. This early config is also
+      // consumed by Matrix, so changing a campaign never creates a second URL.
+      const HOME_HERO = Object.freeze({
+        src: "https://imgcentauro-a.akamaihd.net/05_Campanhas/2026/DuelodosClassicos/out/MPalxVasEGrexGalo.png",
+        alt: "Duelo dos clássicos",
+        route: "https://www.centauro.com.br/hotsite/duelos-das-semifinais"
+      });
+      window.__matrixHomeHero = HOME_HERO;
+      if (location.pathname === "/" || location.pathname === "/home") {
+        if (!document.head.querySelector("link[data-matrix-home-hero-preload='true']")) {
+          const preload = document.createElement("link");
+          preload.rel = "preload";
+          preload.as = "image";
+          preload.href = HOME_HERO.src;
+          preload.setAttribute("fetchpriority", "high");
+          preload.dataset.matrixHomeHeroPreload = "true";
+          document.head.appendChild(preload);
+        }
+      }
+
+      // Product-to-product uses a clean document for React/Matrix stability.
+      // Matrix stores the target hero in sessionStorage before navigating, so
+      // this early head bootstrap can start the likely LCP image before the
+      // React bundle discovers the <img>.
+      try {
+        const productId = location.pathname.match(/^\/produto\/(\d+)/)?.[1];
+        const storedHero = productId ? sessionStorage.getItem(`matrix:product-hero:${productId}`) : "";
+        let hero = storedHero;
+        let srcset = "";
+        let sizes = "";
+        if (storedHero?.startsWith("{")) {
+          const parsed = JSON.parse(storedHero);
+          hero = String(parsed?.href || "");
+          srcset = String(parsed?.srcset || "");
+          sizes = String(parsed?.sizes || "");
+        }
+        if (hero && /^https?:\/\//i.test(hero)) {
+          const preload = document.createElement("link");
+          preload.rel = "preload";
+          preload.as = "image";
+          preload.href = hero;
+          if (srcset) preload.setAttribute("imagesrcset", srcset);
+          if (sizes) preload.setAttribute("imagesizes", sizes);
+          preload.setAttribute("fetchpriority", "high");
+          preload.dataset.matrixBootHeroPreload = "true";
+          document.head.appendChild(preload);
+          window.__matrixBootHeroPreload = { href: hero, srcset, sizes };
+        }
+      } catch {}
+      syncRouteFamily();
+      history.pushState = (...args) => {
+        const result = nativePushState(...args);
+        syncRouteFamily();
+        return result;
+      };
+      history.replaceState = (...args) => {
+        const result = nativeReplaceState(...args);
+        syncRouteFamily();
+        return result;
+      };
+      addEventListener("popstate", syncRouteFamily, { passive: true });
+      window.__matrixSyncRouteFamily = syncRouteFamily;
+    })();
+  </script>
+  <style id="matrix-legacy-header-guard">
+    html[data-matrix-route-family="store"] #root header.fixed.top-0,
+    html[data-matrix-route-family="checkout"] #root header.fixed.top-0 {
+      display: none !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+  </style>
+  <style id="matrix-route-loading-bootstrap-style">
+    /*
+      Perf10: usa o mesmo princípio do loader nativo do SPA (fixed + inset:0).
+      O overlay cobre a viewport inteira, mas fica um nível abaixo dos headers
+      Matrix. Assim não há cálculo de top/altura e o header permanece visível.
+    */
+    html[data-matrix-route-loading="true"] #root {
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+    html[data-matrix-route-loading="true"] body {
+      background: #fff !important;
+      overflow: hidden !important;
+    }
+
+    #matrix-route-loading {
+      position: fixed !important;
+      z-index: 100 !important;
+      right: 0 !important;
+      bottom: auto !important;
+      left: 0 !important;
+      display: block !important;
+      box-sizing: border-box !important;
+      width: 100vw !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+      background: #fff !important;
+      pointer-events: auto !important;
+      overscroll-behavior: contain;
+      isolation: isolate;
+    }
+
+    /*
+      Perf12: posição determinística. O overlay recebe altura explícita igual ao
+      viewport visual menos o header; o GIF é então centralizado por coordenadas
+      absolutas dentro dessa caixa. Isso não depende de flex/grid nem de leitura
+      de geometria do DOM e funciona igual no Chrome, Android WebView e WKWebView.
+    */
+    html[data-matrix-route-family="store"] #matrix-route-loading {
+      top: var(--matrix-store-header-height, 124px) !important;
+      height: calc(100vh - var(--matrix-store-header-height, 124px)) !important;
+      height: calc(100dvh - var(--matrix-store-header-height, 124px)) !important;
+    }
+    html[data-matrix-route-family="checkout"] #matrix-route-loading {
+      top: var(--matrix-checkout-header-height, 57px) !important;
+      height: calc(100vh - var(--matrix-checkout-header-height, 57px)) !important;
+      height: calc(100dvh - var(--matrix-checkout-header-height, 57px)) !important;
+    }
+    html[data-matrix-route-family="other"] #matrix-route-loading {
+      top: 0 !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+    }
+
+    #matrix-route-loading[hidden] { display: none !important; }
+
+    /* Durante uma troca de rota existe exatamente um loader visual. O SPA pode
+       ter seu próprio load.gif para add-to-cart; ele continua normal fora do
+       estado data-matrix-route-loading. */
+    html[data-matrix-route-loading="true"] body img[src*="/assets/load.gif"] {
+      visibility: hidden !important;
+    }
+    html[data-matrix-route-loading="true"] #matrix-route-loading > img {
+      visibility: visible !important;
+    }
+
+    #matrix-route-loading > img {
+      position: absolute !important;
+      top: 50% !important;
+      right: auto !important;
+      bottom: auto !important;
+      left: 50% !important;
+      display: block !important;
+      width: 64px !important;
+      height: 64px !important;
+      margin: 0 !important;
+      object-fit: contain !important;
+      transform: translate(-50%, -50%) !important;
+    }
+
+    /*
+      Os dois headers Matrix já possuem fundo branco. Reforçar o stacking
+      somente durante loading garante que o overlay nunca cubra o header,
+      sem alterar o visual ou a ordem normal fora da transição.
+    */
+    html[data-matrix-route-loading="true"] #matrix-store-header {
+      /*
+        Perf12.1: o header da loja e sticky fora do loading. Quando o loader
+        trava o body com overflow:hidden, um sticky visto apos scroll pode
+        perder a posicao colada e voltar para o topo real do documento.
+        Durante a transicao ele vira fixed para permanecer exatamente no topo;
+        ao terminar o loading esta regra deixa de valer e o CSS Matrix volta
+        a controlar o header normalmente.
+      */
+      position: fixed !important;
+      top: 0 !important;
+      right: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: none !important;
+      z-index: 101 !important;
+    }
+    html[data-matrix-route-loading="true"] #matrix-checkout-header {
+      z-index: 10020 !important;
+    }
+  </style>
+
+  <link rel="dns-prefetch" href="//imgcentauro-a.akamaihd.net">
+  <link rel="dns-prefetch" href="//static.centauro.com.br">
+  <link rel="stylesheet" crossorigin href="/assets/index-homev2slider.css?v=20260809-webview1">
+  <link rel="stylesheet" href="/assets/matrix-redesign.css?v=20261105-home-timer2">
+  <link rel="stylesheet" href="/assets/perf12-mobile-runtime.css?v=20260810-perf12-2">
+  <link rel="stylesheet" href="/assets/feature-fixes/lane-01-plp-filters/plp-filters.css?v=20260808-4">
+  <link rel="stylesheet" href="/assets/netlify-badge.css?v=20261101-1">
+
+  <script src="/assets/config.js"></script>
+  <script src="/assets/popup-template.js"></script>
+  <script src="/assets/interceptador-fetch.js"></script>
+
+  <!-- Pixel loader (sem PageView automático) -->
+  <script defer src="/assets/webview-compat.js?v=20261105-resilience1"></script>
+  <script defer src="/assets/spa-core-runtime.js?v=20261105-pools1"></script>
+  <script defer src="/assets/navigation-normalizer.js?v=20261104-native-funnel1"></script>
+
+  <script type="module" crossorigin src="/assets/index-produto-descricao.js?v=20261105-home-timer2"></script>
+  <script type="module" crossorigin src="/assets/matrix-redesign.js?v=20261105-home-timer2"></script>
+
+<style id="search-page-v2-copa-style">
+.search-page-v2{background:#f4f6f8!important;max-width:430px;margin:0 auto;min-height:100vh;font-family:Arial,Helvetica,sans-serif!important;color:#111!important}.search-page-v2>div:first-child{background:#f4f6f8!important;border-bottom:0!important;padding:8px 14px 6px!important}.search-page-v2>div:first-child h1{display:none!important}.search-page-v2>div:first-child p{font-size:12px!important;line-height:18px!important;font-weight:400!important;color:#000!important;margin:0!important}.search-page-v2>div:nth-child(2){background:#f4f6f8!important;border-bottom:0!important;padding:14px 14px 8px!important}.search-page-v2>div:nth-child(2)>div{display:flex!important;gap:8px!important;width:100%!important}.search-page-v2>div:nth-child(2)>div:before{content:"Filtrar  ↕";height:31px;flex:1;display:flex;align-items:center;justify-content:space-between;border:1.4px solid #2a2a2a;border-radius:4px;background:#fff;color:#000;font-size:12px;font-weight:700;padding:0 12px;box-sizing:border-box}.search-page-v2>div:nth-child(2)>div>div{flex:1!important;min-width:0!important}.search-page-v2 select{width:100%!important;height:31px!important;border:1.4px solid #2a2a2a!important;border-radius:4px!important;background:#fff!important;color:#000!important;font-size:12px!important;font-weight:700!important;padding:0 28px 0 14px!important;box-shadow:none!important}.search-page-v2 select+svg{width:14px!important;height:14px!important;color:#1f1f1f!important;right:9px!important}.search-page-v2>div:nth-child(3){padding:0 14px 22px!important;background:#f4f6f8!important}.search-page-v2 .space-y-4{display:flex!important;flex-direction:column!important;gap:8px!important}.search-product-card-v2{border:1px solid #d8d8d8!important;border-radius:7px!important;box-shadow:none!important;padding:10px 10px 12px!important;background:#fff!important;overflow:hidden!important}.search-product-card-v2>div{gap:8px!important}.search-product-media-v2{height:205px!important;background:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;margin-bottom:2px!important}.search-product-img-v2{max-height:205px!important;max-width:82%!important;width:auto!important;height:100%!important;object-fit:contain!important;border-radius:0!important}.search-product-discount-v2{top:4px!important;right:4px!important;background:#eafff3!important;color:#008a45!important;border:1px solid #008a45!important;border-radius:4px!important;font-size:11px!important;line-height:16px!important;padding:1px 7px!important;font-weight:500!important}.search-arrow-v2{background:transparent!important;border:0!important;box-shadow:none!important;padding:6px!important;border-radius:0!important}.search-arrow-v2 svg{width:16px!important;height:16px!important}.search-arrow-left-v2 svg{color:#8e8e8e!important}.search-arrow-right-v2 svg{color:#e30613!important}.search-product-info-v2{text-align:left!important}.search-rating-v2{justify-content:flex-start!important;gap:0!important;margin:0 0 7px!important}.search-rating-v2 svg{width:16px!important;height:16px!important;color:#ffb400!important;fill:#ffb400!important}.search-product-title-v2{font-size:13px!important;line-height:18px!important;margin:0 0 26px!important;font-weight:700!important;color:#000!important;text-align:left!important}.search-product-desc-v2{font-size:12px!important;line-height:17px!important;color:#000!important;margin:0 0 7px!important;text-align:left!important;-webkit-line-clamp:3!important;display:-webkit-box!important;-webkit-box-orient:vertical!important;overflow:hidden!important}.search-product-badges-v2{justify-content:flex-start!important;gap:5px!important;margin:0 0 7px!important}.search-badge-v2{border:1px solid #8e8e8e!important;border-radius:2px!important;background:#fff!important;color:#333!important;font-size:10px!important;height:18px!important;line-height:16px!important;padding:0 9px!important;display:inline-flex!important;align-items:center!important;font-weight:600!important}.search-price-box-v2{text-align:left!important;line-height:1.1!important}.search-old-price-v2{font-size:12px!important;line-height:14px!important;color:#777!important;text-decoration:line-through!important;margin:0!important}.search-product-price-v2{font-size:14px!important;line-height:18px!important;color:#e30613!important;font-weight:800!important;margin:0!important}.search-installment-v2{font-size:11px!important;line-height:15px!important;color:#000!important;margin:0!important}.search-page-v2 .text-center.py-12{background:#fff!important;border:1px solid #ddd!important;border-radius:8px!important;margin-top:8px!important;padding:34px 18px!important}.search-page-v2 .text-center.py-12 button{background:#007a3d!important;border-radius:4px!important;font-weight:700!important}.copa-menu-drawer .is-disabled-menu{cursor:default!important}.copa-menu-drawer .is-disabled-menu:active{transform:none!important}.copa-menu-drawer .is-disabled-menu:hover{background:inherit!important}
+
+.search-review-count-v2{font-size:12px!important;line-height:16px!important;color:#ffb400!important;font-weight:700!important;margin-left:4px!important;display:inline-flex!important;align-items:center!important}
+.search-page-v2>div:nth-child(2)>div:before{content:"Filtrar  \2195"!important}
+.search-product-card-v2,.home-v2-product-card{content-visibility:auto;contain-intrinsic-size:auto 420px}
+</style>
+
+<style id="plp-e-overrides">
+body.matrix-store .search-page-v2.matrix-search-plp #matrix-search-suggested{height:auto!important;min-height:0!important}
+body.matrix-store .matrix-search-plp .matrix-search-sort-bar{padding-bottom:12px!important}
+body.matrix-store .matrix-search-plp .matrix-search-control-row{min-height:34px!important;height:34px!important}
+body.matrix-store .matrix-search-plp .matrix-search-filter-trigger,body.matrix-store .matrix-search-plp .matrix-search-sort-bar .relative{min-height:34px!important;height:34px!important;padding:0 12px!important}
+body.matrix-store .matrix-search-plp .matrix-search-sort-bar select{height:34px!important}
+body.matrix-store .matrix-search-plp .matrix-search-count{margin-bottom:16px!important}
+body.matrix-store .matrix-search-plp .search-product-media-v2{aspect-ratio:1/1!important;height:auto!important;min-height:0!important}
+body.matrix-store .matrix-search-plp .search-product-img-v2{width:100%!important;height:100%!important;max-width:100%!important;max-height:none!important;object-fit:contain!important}
+body.matrix-store .matrix-search-plp .search-rating-v2{display:flex!important;align-items:center!important;min-height:20px!important;height:20px!important}
+body.matrix-store .matrix-search-plp .search-rating-v2 svg{display:block!important;width:16px!important;height:16px!important}
+body.matrix-store .matrix-search-plp .search-arrow-v2{width:32px!important;height:32px!important;padding:6px!important}
+body.matrix-store .matrix-search-plp .search-arrow-v2 svg{width:20px!important;height:20px!important}
+body.matrix-store #matrix-search-filter-drawer{box-sizing:border-box!important;padding:0 20px 20px!important;overflow-x:hidden!important}
+body.matrix-store #matrix-search-filter-drawer .matrix-search-filter-header{box-sizing:border-box!important;top:0!important;width:calc(100% + 40px)!important;height:64px!important;margin:0 -20px 16px!important;flex:none}
+</style>
+<style id="centauro-proof-style">
+.wp-checkout.centauro-proof .wp-proof-help{margin:0;padding:20px 0 4px;border-top:1px solid #e5e7eb;text-align:left}.wp-checkout.centauro-proof .wp-proof-help h3,.wp-checkout.centauro-proof .wp-proof-help p,.wp-checkout.centauro-proof .wp-proof-button{font-family:Arial,sans-serif}.wp-checkout.centauro-proof .wp-proof-button{border-color:#e30000;background:#fff;color:#b00000}
+</style>
+
+  <style id="matrix-boot-error-style">
+    html[data-matrix-boot-error="true"] body { overflow: hidden !important; }
+    html[data-matrix-boot-error="true"] body > :not(#matrix-boot-error) { display: none !important; }
+    html[data-matrix-boot-error="true"] #matrix-route-loading { display: none !important; }
+    #matrix-boot-error[hidden] { display: none !important; }
+    #matrix-boot-error { position: fixed; inset: 0; z-index: 2147483647; display: grid; place-content: center; gap: 16px; padding: 24px; background: #fff; color: #222; font: 16px/1.5 Arial, sans-serif; text-align: center; }
+    #matrix-boot-error p { margin: 0; }
+    #matrix-boot-error button { padding: 12px 20px; border: 0; border-radius: 4px; background: #e30000; color: #fff; font: inherit; font-weight: bold; cursor: pointer; }
+    #matrix-boot-error button:focus-visible { outline: 3px solid #222; outline-offset: 3px; }
+  </style>
+</head>
+
+<body>
+  <div id="matrix-boot-error" role="alertdialog" aria-modal="true" aria-label="Falha ao carregar a loja" hidden>
+    <p>Não foi possível carregar a loja. Tente novamente.</p>
+    <button type="button">Recarregar página</button>
+  </div>
+  <div id="root"></div>
+  <div id="matrix-route-loading" class="matrix-route-loading" role="status" aria-live="polite" aria-atomic="true" aria-busy="true" aria-hidden="false">
+    <img src="https://spacentauro-a.akamaihd.net/assets/load.gif" width="64" height="64" alt="Carregando..." decoding="async" fetchpriority="high">
+  </div>
+</body>
+
+</html>

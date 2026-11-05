@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "reviews.v1",
+  "productId": "2",
+  "reviews": [
+    {
+      "sourceReviewId": "demo:2:1",
+      "rating": 5,
+      "title": "Compra acertada: Tênis Olympikus Corre 4 Unissex",
+      "body": "A variação Laranja de Tênis Olympikus Corre 4 Unissex ficou exatamente com a proposta que eu procurava. Não encontrei folgas ou incômodos e recomendo para essa finalidade. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Caio Nascimento",
+      "createdAt": "2026-03-22T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:2:2",
+      "rating": 4,
+      "title": "Bom produto, mas confira o ajuste",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e solado aderente foi um ponto positivo. A embalagem chegou com uma marca leve, embora o item estivesse protegido. No meu caso, o conforto ficou levemente ampla. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Sofia Vale",
+      "createdAt": "2026-04-08T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:2:3",
+      "rating": 5,
+      "title": "solado aderente faz diferença neste tênis",
+      "body": "Depois de alguns usos em corrida e caminhada, fiquei satisfeito com O Tênis Olympikus Corre 4 Unissex. Foi uma compra equilibrada para a categoria, sem surpresa negativa. A proposta da Olympikus ficou coerente com o que eu buscava. Voltei a usar a variação Laranja por mais 25 dias e o resultado se manteve.",
+      "author": "Maya Nogueira",
+      "createdAt": "2026-04-25T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:2:4",
+      "rating": 4,
+      "title": "Tênis Olympikus Corre 4 Unissex: atenção a um detalhe",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e solado aderente foi um ponto positivo. Para quem procura uma estrutura muito firme, o material pode parecer levemente ampla. Ainda assim, a categoria tênis foi atendida sem comprometer o uso. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Lia Duarte",
+      "createdAt": "2026-05-12T00:00:00.000Z",
+      "verifiedPurchase": false
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "reviews.v1",
+  "productId": "12",
+  "reviews": [
+    {
+      "sourceReviewId": "demo:12:1",
+      "rating": 4,
+      "title": "Atendeu bem, com observação no uso",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e amortecimento foi um ponto positivo. O produto é bom, mas o acabamento poderia ser um pouco mais uniforme em um detalhe. Ainda assim, a categoria tênis foi atendida sem comprometer o uso. A Olympikus mantém uma boa proposta para esse tipo de produto. Na minha rotina, a variação Branco confirmou essa percepção ao longo de 22 dias.",
+      "author": "Bia Monteiro",
+      "createdAt": "2026-01-10T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:12:2",
+      "rating": 5,
+      "title": "Tênis Olympikus Corre 4 Unissex aprovado para corrida e caminhada",
+      "body": "O ponto mais forte de Tênis Olympikus Corre 4 Unissex foi amortecimento, especialmente durante corrida e caminhada. A construção parece cuidadosa e o produto corresponde ao que eu esperava. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Júlia Pires",
+      "createdAt": "2026-01-27T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:12:3",
+      "rating": 5,
+      "title": "amortecimento faz diferença neste tênis",
+      "body": "Depois de alguns usos em corrida e caminhada, fiquei satisfeito com O Tênis Olympikus Corre 4 Unissex. Foi uma compra equilibrada para a categoria, sem surpresa negativa. A proposta da Olympikus ficou coerente com o que eu buscava. Após 19 dias alternando o uso, a variação Branco permaneceu com o mesmo comportamento.",
+      "author": "Nina Campos",
+      "createdAt": "2026-02-13T00:00:00.000Z",
+      "verifiedPurchase": false
+    },
+    {
+      "sourceReviewId": "demo:12:4",
+      "rating": 5,
+      "title": "Boa escolha na variação Branco",
+      "body": "O Tênis Olympikus Corre 4 Unissex combinou bem com minha rotina de corrida e caminhada; amortecimento aparece de verdade. Gostei do acabamento e do desempenho no uso contínuo. A proposta da Olympikus ficou coerente com o que eu buscava.",
+      "author": "Noah Reis",
+      "createdAt": "2026-03-02T00:00:00.000Z",
+      "verifiedPurchase": true
+    },
+    {
+      "sourceReviewId": "demo:12:5",
+      "rating": 4,
+      "title": "Entrega boa, prazo poderia melhorar",
+      "body": "O Tênis Olympikus Corre 4 Unissex funcionou em corrida e caminhada, e amortecimento foi um ponto positivo. O custo-benefício é positivo, mas eu esperava uma regulagem mais simples. A Olympikus mantém uma boa proposta para esse tipo de produto.",
+      "author": "Tom Reis",
+      "createdAt": "2026-03-19T00:00:00.000Z",
+      "verifiedPurchase": true
+    }
+  ]
+}

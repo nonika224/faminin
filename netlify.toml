@@ -1,0 +1,33 @@
+# ============================================================================
+# frontnetlify — configuração do site descartável (a route-LP vive AQUI).
+# A capa roda em TODOS os caminhos (matcher /*), antes de servir o conteúdo.
+# ============================================================================
+[build]
+  publish = "public"
+
+[[edge_functions]]
+  path = "/*"
+  function = "capa"
+
+# SPA: rotas internas (ex.: /produto/1) caem no index.html (200).
+# Seguro porque a CAPA roda ANTES da cadeia (context.next()) e devolve 404 para
+# caminhos sensíveis (qualquer segmento começando com .env/.git — inclui .env.local —,
+# package.json, package-lock.json, netlify.toml, vercel.json, tsconfig.json,
+# jsconfig.json, *.map/*.pem/*.key/*.sql, /node_modules/*, /.netlify/* e traversal `..`).
+# Se a sua LP NÃO for SPA (HTML/PHP multi-página), comente este bloco.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Assets estáticos continuam servidos direto (não passam pela decisão do núcleo),
+# mas ATENÇÃO: mantenha o conteúdo da LP fora do bundle público se quiser sigilo.
+
+# Segunda camada (defesa em profundidade): crawlers conhecidos levam 302 da
+# canônica mesmo se a Edge Function falhar. Troque SEUDOMINIO.com pela sua URL.
+# [[redirects]]
+#   from = "/*"
+#   to = "https://SEUDOMINIO.com/:splat"
+#   status = 302
+#   force = true
+#   conditions = { User-Agent = ["Googlebot", "facebookexternalhit", "meta-externalagent", "Bingbot", "Applebot"] }
